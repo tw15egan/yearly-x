@@ -1,0 +1,118 @@
+@import 'reset', 'variables';
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-family: "jaf-facitweb", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+    @media (max-width: 650px) {
+        flex-direction: column;
+
+        .search-container,
+        .degree-container {
+            width: 100%;
+            height: 50%;
+        }
+    }
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+
+    form {
+        display: flex;
+        justify-content: center;
+        width: 40%;
+
+        input {
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: .5rem .5rem .5rem .25rem;
+            width: 80%;
+            outline: none;
+            font-size: 20px;
+            border: 0;
+            border-bottom: 5px solid #222;
+
+            &:focus {
+                color: #444;
+                background-color: #f0f0f0;
+                border-bottom: 5px solid #888;
+            }
+        }
+    }
+
+    .search-results {
+        width: 60%;
+        height: 100%;
+        overflow: auto;
+
+        .search-results__list {
+            height: 100%;
+
+            li {
+                border-left: 5px solid transparent;
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    border-left: 5px solid #222;
+                    color: #444;
+                    background-color: #f0f0f0;
+                }
+            }
+
+            a {
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                padding: .75rem 0 .75rem 1rem;
+                text-decoration: none;
+                color: #222;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+
+
+    }
+}
+
+.degree-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 50%;
+    height: 100%;
+    background-color: #222;
+
+    .degrees {
+        font-size: 3rem;
+
+        .label {
+            color: #888;
+            font-size: 1rem;
+        }
+    }
+}
