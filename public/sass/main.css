@@ -70,9 +70,6 @@ li {
   padding: 0;
   list-style-type: none; }
 
-* {
-  box-sizing: border-box; }
-
 html,
 body {
   height: 100%;
@@ -105,12 +102,12 @@ body {
     justify-content: center;
     width: 40%; }
     .search-container form input {
-      font-weight: 600;
-      letter-spacing: 1px;
-      padding: .5rem .5rem .5rem .25rem;
+      color: #ababab;
+      font-weight: 400;
+      padding: .5rem .5rem .5rem .75rem;
       width: 80%;
       outline: none;
-      font-size: 20px;
+      font-size: 18px;
       border: 0;
       border-bottom: 5px solid #222; }
       .search-container form input:focus {

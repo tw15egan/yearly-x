@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('request');
 var https = require('https');
 var cfenv = require('cfenv');
+var moment = require('moment');
 
 
 
@@ -42,7 +43,13 @@ io.on('connection', function (socket) {
     })
 
     socket.on('weatherClick', function(query) {
-        var url = 'http://api.wunderground.com/api/30fd7a559cd49cb5/history_20160309' + query + '.json'
+	var nowMoment = moment()
+	var nowDate = new Date()
+	var now = moment(nowDate)
+	var date = now.subtract(1, 'days')
+	date = date.format('YYYYMMDD')
+	console.log(date);
+        var url = 'http://api.wunderground.com/api/30fd7a559cd49cb5/history_' + date + query + '.json'
         var weatherOutput = getWeather(url, function(results) {
             var almanac = handleWeather(results);
             var max = almanac[0],
