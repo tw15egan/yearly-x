@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: Drizzle
-  host: drizzle
+  name: Weekly-w
+  host: weekly-w
   disk_quota: 1024M

@@ -25,6 +25,6 @@ socket.on('weatherClick', function(arr) {
 	    let max = arr[i][0]
 	    let min = arr[i][1]
 	    console.log(max + ' ' + min);
-	    $('.day-container').append('<div class="day" style="height: ' + (max*2) + 'px"><div class="max" style="height:' + (max*3) + 'px;"><span class="degree">' + max + '</span></div><div class="min" style="height:' + (min*3) + 'px;" ><span class="degree">' + min + '</div></div>')
+	    $('.day-container').append('<div class="day"><div class="max" style="height:' + (max*3) + 'px;"><span class="degree">' + max + '</span></div><div class="min" style="height:' + (min*3) + 'px;" ><span class="degree">' + min + '</div></div>')
     }
 })

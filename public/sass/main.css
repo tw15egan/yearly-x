@@ -83,7 +83,7 @@ body {
   height: 100%;
   width: 100%;
   display: flex; }
-  @media (max-width: 650px) {
+  @media (max-width: 950px) {
     .container {
       flex-direction: column; }
       .container .search-container,
@@ -122,9 +122,10 @@ body {
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: flex-start; }
       .search-container .search-results .search-results__list li {
+        width: 100%;
         border-left: 5px solid transparent;
         display: flex;
         align-items: center; }
@@ -150,20 +151,19 @@ body {
   color: #fff;
   width: 50%;
   height: 100%;
-  background-color: #222; }
+  background-color: #343434; }
   .degree-container .day-container {
-    height: 50%;
-    width: 100%;
+    padding: 1rem;
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-end;
     justify-content: center; }
   .degree-container .day {
-    width: 40px;
-    margin-left: .5rem;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex; }
+  .degree-container .day + .day {
+    margin-right: 1rem; }
   .degree-container .max,
   .degree-container .min {
     position: relative;
@@ -172,14 +172,13 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    transform-origin: bottom; }
+    transform-origin: bottom;
+    background: linear-gradient(to top, #CF4799 10px, #70D6FF 40px, #CFF27E 100px, #FFA552 180px, #FF6663 300px); }
     .degree-container .max:hover,
     .degree-container .min:hover {
       transform: scaleY(1.3); }
   .degree-container .min {
-    background-color: #14BDEB; }
-  .degree-container .max {
-    background-color: #FEC601; }
+    margin-left: .5rem; }
   .degree-container .degree {
     position: absolute;
     bottom: -20px;

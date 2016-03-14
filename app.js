@@ -48,9 +48,12 @@ io.on('connection', function (socket) {
 	var nowMoment = moment()
 	var nowDate = new Date()
 	var now = moment(nowDate)
-	for (var i = 0; i < 10; i++) {
-		var date = now.subtract(i, 'days')
+	for (var i = 1; i < 10; i++) {
+        
+		var date = now.subtract(1, 'days')
+        
 		date = date.format('YYYYMMDD')
+        console.log(date);
 		var url = 'http://api.wunderground.com/api/30fd7a559cd49cb5/history_' + date + query + '.json'
 	        var weatherOutput = getWeather(url, function(results) {
 	            var almanac = handleWeather(results);
@@ -117,6 +120,9 @@ function getWeather(url, callback) {
 }
 
 function handleWeather(results) {
+    console.log(results[0].date.mon + results[0].date.mday);
+    var month = results[0].date.mon
+    var day = results[0].date.mday
     var max = results[0].maxtempi
     var min = results[0].mintempi
     var arr = [];
