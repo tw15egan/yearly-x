@@ -11,6 +11,7 @@ var app = express();
 var http = require('http')
 var server = http.Server(app);
 var io = require('socket.io')(server);
+
 server.listen(process.env.PORT || 3000)
 
 
@@ -43,20 +44,23 @@ io.on('connection', function (socket) {
     })
 
     socket.on('weatherClick', function(query) {
+	var weatherArray = []
 	var nowMoment = moment()
 	var nowDate = new Date()
 	var now = moment(nowDate)
-	var date = now.subtract(1, 'days')
-	date = date.format('YYYYMMDD')
-	console.log(date);
-        var url = 'http://api.wunderground.com/api/30fd7a559cd49cb5/history_' + date + query + '.json'
-        var weatherOutput = getWeather(url, function(results) {
-            var almanac = handleWeather(results);
-            var max = almanac[0],
-                min = almanac[1]
-
-            io.emit('weatherClick', max, min)
-        })
+	for (var i = 0; i < 10; i++) {
+		var date = now.subtract(i, 'days')
+		date = date.format('YYYYMMDD')
+		var url = 'http://api.wunderground.com/api/30fd7a559cd49cb5/history_' + date + query + '.json'
+	        var weatherOutput = getWeather(url, function(results) {
+	            var almanac = handleWeather(results);
+		    weatherArray.push(almanac)
+		    
+	    })
+    	}
+	setTimeout(function() {
+		io.emit('weatherClick', weatherArray)
+	}, 1000)
     })
 })
 
